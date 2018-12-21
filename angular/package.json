@@ -1,0 +1,47 @@
+{
+    "name": "app-seed-angular",
+    "version": "1.0.0",
+    "private": true,
+    "description": "An app",
+    "scripts": {
+        "lint": "tslint ./src/**/*.ts -t verbose",
+        "start": "cross-var ng serve --host 0.0.0.0 --port=${APP_PORT} --disable-host-check --live-reload=false",
+        "build": "ng build --prod",
+        "ng": "ng"
+    },
+    "keywords": [],
+    "author": "Raphael De Freitas",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "@angular/animations": "^7.0.0",
+        "@angular/common": "^7.0.0",
+        "@angular/compiler": "^7.0.0",
+        "@angular/core": "^7.0.0",
+        "@angular/forms": "^7.0.0",
+        "@angular/http": "^7.0.0",
+        "@angular/platform-browser": "^7.0.0",
+        "@angular/platform-browser-dynamic": "^7.0.0",
+        "@angular/router": "^7.0.0",
+        "@angular/upgrade": "^7.0.0",
+        "angular-in-memory-web-api": "^0.6.0",
+        "codelyzer": "^4.5.0",
+        "core-js": "^2.5.4",
+        "cross-var": "^1.1.0",
+        "rxjs": "^6.3.0",
+        "zone.js": "~0.8.26"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^0.10.0",
+        "@angular/cli": "^7.0.0",
+        "@angular/compiler-cli": "^7.0.0",
+        "@angular/platform-server": "^7.0.0",
+        "@types/jasmine": "~2.8.8",
+        "@types/jasminewd2": "^2.0.4",
+        "@types/node": "~8.9.4",
+        "lodash": "^4.16.2",
+        "ts-node": "~7.0.0",
+        "tslint": "~5.11.0",
+        "typescript": "~3.1.1"
+    },
+    "repository": {}
+}

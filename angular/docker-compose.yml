@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+    http:
+        image: nginx:stable
+        restart: always
+        labels:
+            traefik.backend: ${TRAEFIK_PROJECT_NAME}-http
+            traefik.frontend.rule: Host:${DOMAIN}
+            traefik.docker.network: traefik
+            traefik.port: 80
+        networks:
+            - default
+            - traefik
+        env_file: .env
+        volumes:
+            - ./docker/nginx/server.conf.template:/etc/nginx/conf.d/server.conf.template
+            - ./docker/nginx/entrypoint.sh:/entrypoint.sh
+        depends_on:
+            - app
+        entrypoint: /entrypoint.sh
+
+    app:
+        image: node:lts
+        user: ${HOST_USER_ID}
+        restart: always
+        env_file: .env
+        volumes:
+            - ./:/home/node/app
+        working_dir: /home/node/app
+        command: bash -c 'yarn run start'
+
+networks:
+    traefik:
+        external:
+            name: ${TRAEFIK_NETWORK_NAME}
